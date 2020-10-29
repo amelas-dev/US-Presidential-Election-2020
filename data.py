@@ -14,7 +14,6 @@ class States:
       self.filename = filename
    #function to read and run calculations on the data.
    def reading(self):
-      #[n][0] is n'th state name, [n][1] is state abbreviation, [n][2] is overall avg, [n][3] is average rise, [n][4] is prediction from last year, [n][5] is prediction based on avg
       finallist = []
       #using a list of state abbreviations to have the user use NY or New York.
       i = 0
