@@ -24,11 +24,11 @@ import csv
 #       return finallist
 
 class State:
-    most_recent_data =[]
     def _init_(self, file, date):
-        ''' args list of lists.
-            initialize fields with the most recent data.'''
+        ''' args file name, recent date.
+            create nexted list for most recent data.'''
         arr = State.open_file(file)
+        self.most_recent_data =[]
         for data in arr:
             if (data[0] != date):
                 continue
