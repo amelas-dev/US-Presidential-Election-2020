@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from test import test
 
 app = Flask(__name__)
-app._static_folder = '/Users/gabrielwersebe/Desktop/Coding/Group/US-Presidential-Election-2020/static'
+app._static_folder = '/US-Presidential-Election-2020/static'
 
 @app.route('/')
 def stick():
