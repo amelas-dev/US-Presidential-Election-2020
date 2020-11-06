@@ -39,13 +39,16 @@ def main(votes):
                 randomNoise = random.normalvariate(0.0,1.0)/2.0*3.0
                 finalPrediction = basePrediciton + randomNoise
                 finalPredictionList.append(finalPrediction)
+                for data in stateList:
             for i in finalPredictionList:
                 if i > 0:
-                    print("Biden: %d" %i)
+                    bidenEvList.append(float(data[2]))
                 else:
-                    print ("Trump: %d" %i)
-            bidenTotalEv.append(sum(bidenEvList))
-            trumpTotalEv.append(sum(trumpEvList))
+                    trumpEvList.append(float(data[2]))
+        bidenTotalEv.append(sum(bidenEvList))
+        trumpTotalEv.append(sum(trumpEvList))
+        print (bidenTotalEv)
+        print (trumpTotalEv)
 
     print('Hope it was helpful, Bye!!')
 if __name__ == "__main__":
@@ -53,4 +56,5 @@ if __name__ == "__main__":
     state._init_("2020-presidential.csv", '10/6/2020')
     stateList = state.get_list()
     votes = getVote(stateList)
-    main (votes)
+    main (votes, stateList)
+
