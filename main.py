@@ -19,7 +19,7 @@ def getVote (data):
         votes.append(b -t) #append to votes
     return votes
 
-def main(votes):
+def main(votes, stateList):
     bidenTotalEv = []
     trumpTotalEv = []
     finalPredictionList = []
@@ -40,11 +40,12 @@ def main(votes):
                 finalPrediction = basePrediciton + randomNoise
                 finalPredictionList.append(finalPrediction)
                 for data in stateList:
-            for i in finalPredictionList:
-                if i > 0:
-                    bidenEvList.append(float(data[2]))
-                else:
-                    trumpEvList.append(float(data[2]))
+            for data in stateList:
+                for i in finalPredictionList:
+                    if i > 0:
+                        bidenEvList.append(float(data[2]))
+                    else:
+                        trumpEvList.append(float(data[2]))
         bidenTotalEv.append(sum(bidenEvList))
         trumpTotalEv.append(sum(trumpEvList))
         print (bidenTotalEv)
