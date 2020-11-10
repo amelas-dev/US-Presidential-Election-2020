@@ -39,7 +39,7 @@ def main(votes, stateList):
                 randomNoise = random.normalvariate(0.0,1.0)/2.0*3.0
                 finalPrediction = basePrediciton + randomNoise
                 finalPredictionList.append(finalPrediction)
-                for data in stateList:
+                
             for data in stateList:
                 for i in finalPredictionList:
                     if i > 0:
@@ -58,4 +58,3 @@ if __name__ == "__main__":
     stateList = state.get_list()
     votes = getVote(stateList)
     main (votes, stateList)
-
