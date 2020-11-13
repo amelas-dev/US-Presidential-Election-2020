@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Us Electoral Map</title>
+
+  <script src = "static/js/raphael.min.js"></script>
+  <script src = "static/js/us-map-svg.js"></script>
+
+</head>
+
+<body>
+  
+  
+
+  <div id="container"></div>
+  <!-- /container -->
+
+
+
+  <script>
+    window.onload = function () {
+      var R = Raphael("container", 10000, 10000),
+        attrB = {
+          "fill": "#0000FF",
+          "stroke": "#fff",
+          "stroke-opacity": "1",
+          "stroke-linejoin": "round",
+          "stroke-miterlimit": "4",
+          "stroke-width": "0.75",
+          "stroke-dasharray": "none"
+        },
+
+        attrR = {
+          "fill": "#FF0000",
+          "stroke": "#fff",
+          "stroke-opacity": "1",
+          "stroke-linejoin": "round",
+          "stroke-miterlimit": "4",
+          "stroke-width": "0.75",
+          "stroke-dasharray": "none"
+        },
+
+
+        usRaphael = {};
+
+        stateStatus = {{status | tojson}};
+
+      //Draw Map and store Raphael paths
+      var i = 0;
+      for (var state in usMap) {
+        if (stateStatus[i] == "red"){
+          usRaphael[state] = R.path(usMap[state]).attr(attrR);
+        console.log([state])
+        }
+
+        if (stateStatus[i] == "blue"){
+          usRaphael[state] = R.path(usMap[state]).attr(attrB);
+        console.log([state])
+        }
+
+        i++;
+        console.log(i)
+      }
+
+    };
+  </script>
+
+</body>
+
+</html>
